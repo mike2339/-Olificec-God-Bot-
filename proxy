@@ -1,0 +1,10 @@
+server {
+    listen 80;
+    server_name olificec.com www.olificec.com;
+
+    location / {
+        proxy_pass http://unix:/path/to/olificec-god-bot/olificec-god-bot.sock;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
